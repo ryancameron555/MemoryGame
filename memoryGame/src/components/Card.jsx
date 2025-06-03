@@ -1,7 +1,7 @@
 /** @format */
 
 import React from 'react';
-import '..styles/Card.css';
+import '../styles/Card.css';
 
 export default function Card({ card, onClick, isFlipped, isMatched }) {
   return (
@@ -13,7 +13,7 @@ export default function Card({ card, onClick, isFlipped, isMatched }) {
         <div className="card-front">
           <img src={card.img} alt={card.name} />
         </div>
-        <div className="card-back">❓</div>
+        <div className="card-back"></div>
       </div>
     </div>
   );
