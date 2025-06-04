@@ -3,15 +3,21 @@
 .App {
   font-family: sans-serif;
   text-align: center;
-  padding: 20px;
-  background: #f2f2f2;
+  /* padding: 20px; */
+  background: green;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  margin-left: 10%;
 }
 
 .board {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   gap: 15px;
-  max-width: 600px;
-  margin: 0 auto;
+  width: 90%;
+  max-width: 90vw;
 }

@@ -9,23 +9,34 @@ function App() {
   const [cards, setCards] = useState([]);
   const [flippedCards, setFlippedCards] = useState([]);
   const [matchedCards, setMatchedCards] = useState([]);
+  const [disabled, setDisabled] = useState(false);
 
   useEffect(() => {
     setCards(generateShuffledDeck());
   }, []);
 
   const handleCardClick = (card) => {
-    if (flippedCards.length === 2 || flippedCards.includes(card.id)) return;
+    if (flippedCards.length === 2 || flippedCards.includes(card.id) || disabled)
+      return;
 
     const newFlips = [...flippedCards, card.id];
     setFlippedCards(newFlips);
 
     if (newFlips.length === 2) {
-      const [first, second] = newFlips.map((id) => cards.find(card.id === id));
+      setDisabled(true);
+
+      const [first, second] = newFlips.map((id) =>
+        cards.find((card) => card.id === id)
+      );
+
       if (first.name === second.name) {
         setMatchedCards((prev) => [...prev, first.name]);
       }
-      setTimeout(() => setFlippedCards([]), 1000);
+
+      setTimeout(() => {
+        setFlippedCards([]);
+        setDisabled(false);
+      }, 1000);
     }
   };
 
