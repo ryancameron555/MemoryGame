@@ -55,6 +55,9 @@ function App() {
   return (
     <div className="App">
       <h1>Memory Card Game</h1>
+      <h2>
+        (This is still a work in progress , more functionality on the way!)
+      </h2>
       <Timer isRunning={isTimerRunning} />
       <Board
         cards={cards}
