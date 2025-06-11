@@ -13,13 +13,15 @@ export default function Timer({ isRunning, onStop }) {
       timer = setInterval(() => {
         setTime((prev) => prev + 1);
       }, 1000);
-    } else if (!isRunning && time !== 0) {
-      clearInterval(timer);
-      if (onStop) onStop(time);
     }
-
     return () => clearInterval(timer);
-  }, [isRunning, onStop, time]);
+  }, [isRunning]);
+
+  useEffect(() => {
+    if (!isRunning && time !== 0 && onStop) {
+      onStop(time);
+    }
+  }, [isRunning, time, onStop]);
 
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60)
