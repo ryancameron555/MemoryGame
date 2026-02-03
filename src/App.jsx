@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import { generateShuffledDeck } from './data/card';
 import Board from './components/Board';
-import Timer from './components/Timer';
-import Restart from './components/Restart';
+import GameControls from './components/GameControls';
+import ScoreManager from './components/ScoreManager';
 import './styles/App.css';
 
 function App() {
@@ -14,29 +14,45 @@ function App() {
   const [disabled, setDisabled] = useState(false);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
   const [restartKey, setRestartKey] = useState(0);
+  const [moves, setMoves] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [gameComplete, setGameComplete] = useState(false);
+  const [finalTime, setFinalTime] = useState(0);
 
   useEffect(() => {
     setCards(generateShuffledDeck());
   }, []);
 
   useEffect(() => {
-    if (matchedCards.length === cards.length / 2 && matchedCards.length > 0) {
+    if (matchedCards.length > 0 && matchedCards.length === cards.length / 2) {
       setIsTimerRunning(false);
+      setGameComplete(true);
     }
   }, [matchedCards, cards]);
 
   const handleCardClick = (card) => {
-    if (flippedCards.length === 2 || flippedCards.includes(card.id) || disabled)
+    // Prevent card clicks when paused
+    if (isPaused) return;
+    
+    if (
+      flippedCards.length === 2 ||
+      flippedCards.includes(card.id) ||
+      matchedCards.includes(card.name) ||
+      disabled
+    )
       return;
 
     if (!isTimerRunning && flippedCards.length === 0) {
       setIsTimerRunning(true);
     }
 
+    // Define newFlips FIRST
     const newFlips = [...flippedCards, card.id];
     setFlippedCards(newFlips);
 
+    // Then check its length and increment moves
     if (newFlips.length === 2) {
+      setMoves((prev) => prev + 1);
       setDisabled(true);
 
       const [first, second] = newFlips.map((id) =>
@@ -58,23 +74,40 @@ function App() {
     setCards(generateShuffledDeck());
     setFlippedCards([]);
     setMatchedCards([]);
+    setMoves(0);
     setIsTimerRunning(false);
+    setIsPaused(false);
+    setGameComplete(false);
+    setFinalTime(0);
     setRestartKey((prev) => prev + 1); //Timer reset
+  };
+
+  const handlePauseResume = () => {
+    setIsPaused((prev) => !prev);
+    setIsTimerRunning((prev) => !prev);
   };
 
   return (
     <div className="App">
-      <h1>Memory Card Game</h1>
-      <h2>
-        (This is still a work in progress , more functionality on the way!)
-      </h2>
-      <Restart onRestart={handleRestart} />
-      <Timer key={restartKey} isRunning={isTimerRunning} />
+      <GameControls
+        onRestart={handleRestart}
+        isTimerRunning={isTimerRunning}
+        restartKey={restartKey}
+        moves={moves}
+        onPauseResume={handlePauseResume}
+        isPaused={isPaused}
+        onTimeUpdate={setFinalTime}
+      />
       <Board
         cards={cards}
         handleCardClick={handleCardClick}
         flippedCards={flippedCards}
         matchedCards={matchedCards}
+      />
+      <ScoreManager
+        currentTime={finalTime}
+        currentMoves={moves}
+        isGameComplete={gameComplete}
       />
     </div>
   );

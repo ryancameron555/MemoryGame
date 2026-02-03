@@ -12,7 +12,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* Changed from flex-end */
   font-family: sans-serif;
   text-align: center;
   background: rgba(0, 128, 0, 0.7);
@@ -20,14 +20,145 @@ body {
   width: 100vw;
   box-sizing: border-box;
   overflow: hidden;
+  padding: 0; /* Remove padding to let AppBar sit at the top */
+  gap: 0.5rem;
+}
+
+.App h1 {
+  font-size: clamp(1.2rem, 3vw, 2.5rem);
+  margin: 2vh;
+  flex-shrink: 0;
+}
+
+.App h2 {
+  font-size: clamp(0.65rem, 1.5vw, 1rem);
+  margin: 2vh;
+  flex-shrink: 0;
+  font-weight: normal;
 }
 
 .board {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(6.5vw, 1fr));
-  gap: 1vw;
-  width: 75%;
-  max-width: 100vw;
-  height: 75%;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 1%;
+  width: 85vw;
+  height: 75vh;
+  margin: 0 auto;
   box-sizing: border-box;
+  padding: 1%;
+}
+
+/* Large tablets / small desktops */
+@media (max-width: 1200px) {
+  .board {
+    width: 85vw;
+    height: 75vh;
+    gap: 1%;
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .App {
+    gap: 0.4rem;
+  }
+
+  .board {
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    width: 85vw;
+    height: 75vh;
+    gap: 1%;
+  }
+}
+
+/* Small tablets / large phones */
+@media (max-width: 768px) {
+  .App {
+    gap: 0.2rem;
+  }
+
+  .App h1 {
+    font-size: 1rem;
+  }
+
+  .App h2 {
+    font-size: 0.6rem;
+  }
+
+  .board {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    width: 92vw;
+    height: 75vh;
+    gap: 1%;
+  }
+}
+
+/* Mobile phones in portrait */
+@media (max-width: 480px) {
+  .App {
+    gap: 0.15rem;
+  }
+
+  .App h1 {
+    font-size: 0.95rem;
+  }
+
+  .App h2 {
+    font-size: 0.55rem;
+  }
+
+  .board {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    width: 96vw;
+    height: 75vh;
+    gap: 0.8%;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .App {
+    gap: 0.1rem;
+  }
+
+  .App h1 {
+    font-size: 0.85rem;
+  }
+
+  .App h2 {
+    font-size: 0.5rem;
+  }
+
+  .board {
+    width: 98vw;
+    height: 75vh;
+    gap: 0.2%;
+  }
+}
+
+/* Landscape mode for phones */
+@media (max-height: 600px) and (orientation: landscape) {
+  .App {
+    gap: 0.1rem;
+  }
+
+  .App h1 {
+    font-size: 0.9rem;
+  }
+
+  .App h2 {
+    font-size: 0.5rem;
+  }
+
+  .board {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    width: 90vw;
+    height: 90vh;
+    gap: 0.8%;
+  }
 }
