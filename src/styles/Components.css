@@ -280,85 +280,34 @@
 /* Mobile phones */
 @media (max-width: 480px) {
   .btn-base {
-    padding: 0.45rem 1rem;
-    font-size: 0.8rem;
-    gap: 0.3rem;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.7rem;
+    gap: 0.25rem;
   }
 
   .btn-base .icon {
+    font-size: 0.8rem;
+  }
+
+  .btn-base .text {
+    font-size: 0.7rem;
+  }
+
+  .game-controls {
+    gap: 0.35rem;
+    padding: 0.4rem 0.4rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .stat-card {
+    padding: 0.3rem 0.5rem;
+    gap: 0.4rem;
+    min-width: fit-content;
+  }
+
+  .stat-icon {
     font-size: 0.9rem;
-  }
-
-  .btn-base .text {
-    font-size: 0.8rem;
-  }
-
-  .game-controls {
-    gap: 0.5rem;
-    padding: 0.5rem 0.5rem;
-  }
-
-  .stat-card {
-    padding: 0.4rem 0.75rem;
-    gap: 0.5rem;
-  }
-
-  .stat-icon {
-    font-size: 1.1rem;
-  }
-
-  .stat-label {
-    font-size: 0.6rem;
-  }
-
-  .stat-value {
-    font-size: 1rem;
-  }
-
-  .game-stats {
-    gap: 0.4rem;
-  }
-}
-
-/* Very small screens - two rows layout */
-@media (max-width: 400px) {
-  .game-controls {
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    padding: 0.5rem;
-    justify-content: center;
-  }
-
-  /* Buttons in first row */
-  .btn-base {
-    padding: 0.4rem 0.85rem;
-    font-size: 0.75rem;
-  }
-
-  .btn-base .icon {
-    font-size: 0.85rem;
-  }
-
-  .btn-base .text {
-    font-size: 0.75rem;
-  }
-
-  /* Stats take full width in second row */
-  .game-stats {
-    width: 100%;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-
-  .stat-card {
-    flex: 1;
-    min-width: 0;
-    padding: 0.35rem 0.6rem;
-    gap: 0.4rem;
-  }
-
-  .stat-icon {
-    font-size: 1rem;
   }
 
   .stat-label {
@@ -366,7 +315,54 @@
   }
 
   .stat-value {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
+  }
+
+  .game-stats {
+    gap: 0.3rem;
+    flex-shrink: 0;
+  }
+}
+
+/* Very small screens - even more compact, still one line */
+@media (max-width: 400px) {
+  .btn-base {
+    padding: 0.3rem 0.5rem;
+    font-size: 0.65rem;
+  }
+
+  .btn-base .icon {
+    font-size: 0.75rem;
+  }
+
+  .btn-base .text {
+    font-size: 0.65rem;
+  }
+
+  .game-controls {
+    gap: 0.25rem;
+    padding: 0.35rem 0.3rem;
+  }
+
+  .stat-card {
+    padding: 0.25rem 0.4rem;
+    gap: 0.3rem;
+  }
+
+  .stat-icon {
+    font-size: 0.8rem;
+  }
+
+  .stat-label {
+    font-size: 0.5rem;
+  }
+
+  .stat-value {
+    font-size: 0.8rem;
+  }
+
+  .game-stats {
+    gap: 0.25rem;
   }
 }
 
@@ -377,37 +373,37 @@
   }
 
   .btn-base {
-    padding: 0.45rem;
-    min-width: 36px;
-    min-height: 36px;
+    padding: 0.35rem;
+    min-width: 30px;
+    min-height: 30px;
   }
 
   .btn-base .icon {
-    font-size: 0.95rem;
-  }
-
-  .game-controls {
-    gap: 0.4rem;
-    padding: 0.4rem;
-  }
-
-  .stat-card {
-    padding: 0.3rem 0.5rem;
-  }
-
-  .stat-icon {
-    font-size: 0.9rem;
-  }
-
-  .stat-label {
-    font-size: 0.5rem;
-  }
-
-  .stat-value {
     font-size: 0.85rem;
   }
 
+  .game-controls {
+    gap: 0.25rem;
+    padding: 0.3rem 0.25rem;
+  }
+
+  .stat-card {
+    padding: 0.25rem 0.35rem;
+  }
+
+  .stat-icon {
+    font-size: 0.75rem;
+  }
+
+  .stat-label {
+    font-size: 0.48rem;
+  }
+
+  .stat-value {
+    font-size: 0.75rem;
+  }
+
   .game-stats {
-    gap: 0.3rem;
+    gap: 0.2rem;
   }
 }
