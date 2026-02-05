@@ -5,6 +5,7 @@ import { generateShuffledDeck } from './data/card';
 import Board from './components/Board';
 import GameControls from './components/GameControls';
 import ScoreManager from './components/ScoreManager';
+import Footer from './components/Footer';
 import './styles/App.css';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
   const [isPaused, setIsPaused] = useState(false);
   const [gameComplete, setGameComplete] = useState(false);
   const [finalTime, setFinalTime] = useState(0);
+  const [showLeaderboard, setShowLeaderboard] = useState(false);
 
   useEffect(() => {
     setCards(generateShuffledDeck());
@@ -97,6 +99,7 @@ function App() {
         onPauseResume={handlePauseResume}
         isPaused={isPaused}
         onTimeUpdate={setFinalTime}
+        onViewScores={() => setShowLeaderboard(true)}
       />
       <Board
         cards={cards}
@@ -108,7 +111,10 @@ function App() {
         currentTime={finalTime}
         currentMoves={moves}
         isGameComplete={gameComplete}
+        showLeaderboard={showLeaderboard}
+        onCloseLeaderboard={() => setShowLeaderboard(false)}
       />
+      <Footer />
     </div>
   );
 }

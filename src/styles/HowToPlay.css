@@ -1,0 +1,302 @@
+/** @format */
+
+/* ===================================
+   INFO BUTTON
+   =================================== */
+
+.info-btn {
+  background: linear-gradient(180deg, #4a6b4a 0%, #36523a 100%);
+  color: #e8f5e9;
+  border-color: #2d4230;
+}
+
+.info-btn:hover {
+  background: linear-gradient(180deg, #567856 0%, #425f45 100%);
+  color: #fff;
+}
+
+/* ===================================
+   INFO MODAL
+   =================================== */
+
+.info-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+  padding: 1rem;
+}
+
+.info-modal {
+  background: linear-gradient(180deg, #f8f6f0 0%, #e8e4d8 100%);
+  border: 3px solid #d4c5a0;
+  border-radius: 8px;
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  animation: slideUp 0.3s ease;
+  position: relative;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #6d5638;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  border-radius: 4px;
+}
+
+.modal-close-btn:hover {
+  background: rgba(109, 86, 56, 0.2);
+  color: #2a1810;
+}
+
+.info-modal h2 {
+  margin: 0 0 1.5rem 0;
+  color: #2a1810;
+  font-family: Georgia, 'Times New Roman', serif;
+  text-align: center;
+  font-size: 1.8rem;
+  border-bottom: 2px solid #d4c5a0;
+  padding-bottom: 0.75rem;
+  padding-right: 2rem;
+}
+
+/* ===================================
+   INSTRUCTION STEPS
+   =================================== */
+
+.instructions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.instruction-step {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.step-number {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #daa520 0%, #b8860b 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.step-content {
+  flex: 1;
+}
+
+.step-content h3 {
+  margin: 0 0 0.5rem 0;
+  color: #2a1810;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.step-content p {
+  margin: 0;
+  color: #6d5638;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ===================================
+   CONTROLS INFO
+   =================================== */
+
+.controls-info {
+  background: rgba(139, 111, 71, 0.1);
+  border: 1px solid #d4c5a0;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.controls-info h3 {
+  margin: 0 0 0.75rem 0;
+  color: #2a1810;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.controls-info ul {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: #6d5638;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.controls-info li {
+  margin-bottom: 0.5rem;
+}
+
+.controls-info strong {
+  color: #5c3a21;
+}
+
+/* ===================================
+   GOT IT BUTTON
+   =================================== */
+
+.got-it-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background: linear-gradient(180deg, #5c3a21 0%, #3d2817 100%);
+  color: #f4e4c1;
+  border: 1px solid #2a1810;
+  border-radius: 4px;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.got-it-btn:hover {
+  background: linear-gradient(180deg, #6b4528 0%, #4a301d 100%);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.got-it-btn:active {
+  transform: translateY(0px);
+}
+
+/* ===================================
+   RESPONSIVE STYLES
+   =================================== */
+
+@media (max-width: 768px) {
+  .info-modal {
+    padding: 1.5rem;
+  }
+
+  .info-modal h2 {
+    font-size: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .modal-close-btn {
+    top: 0.75rem;
+    right: 0.75rem;
+    font-size: 1.8rem;
+    width: 28px;
+    height: 28px;
+  }
+
+  .step-number {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .step-content h3 {
+    font-size: 1rem;
+  }
+
+  .step-content p {
+    font-size: 0.9rem;
+  }
+
+  .controls-info h3 {
+    font-size: 1rem;
+  }
+
+  .controls-info ul {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .info-modal {
+    padding: 1.25rem;
+  }
+
+  .info-modal h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .instructions {
+    gap: 1rem;
+  }
+
+  .instruction-step {
+    gap: 0.75rem;
+  }
+
+  .step-number {
+    width: 28px;
+    height: 28px;
+    font-size: 0.95rem;
+  }
+
+  .step-content h3 {
+    font-size: 0.95rem;
+  }
+
+  .step-content p {
+    font-size: 0.85rem;
+  }
+
+  .controls-info {
+    padding: 0.75rem;
+  }
+
+  .controls-info h3 {
+    font-size: 0.95rem;
+  }
+
+  .controls-info ul {
+    font-size: 0.8rem;
+    padding-left: 1.25rem;
+  }
+
+  .got-it-btn {
+    font-size: 0.95rem;
+  }
+}

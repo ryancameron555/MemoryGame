@@ -1,13 +1,12 @@
 /** @format */
 
 import React, { useEffect, useState, useRef } from 'react';
-import '../Styles/ScoreManager.css';
+import '../styles/ScoreManager.css'; // Separate CSS file for ScoreManager component
 
-function ScoreManager({ currentTime, currentMoves, isGameComplete }) {
+function ScoreManager({ currentTime, currentMoves, isGameComplete, showLeaderboard, onCloseLeaderboard }) {
   const [bestScores, setBestScores] = useState([]);
   const [currentScore, setCurrentScore] = useState(null);
   const [showScoreModal, setShowScoreModal] = useState(false);
-  const [showLeaderboard, setShowLeaderboard] = useState(false);
   const lastSavedGameRef = useRef(null); // Track if we've already saved this game
 
   // Calculate score: lower is better (time in seconds + moves * 2)
@@ -95,16 +94,7 @@ function ScoreManager({ currentTime, currentMoves, isGameComplete }) {
   };
 
   return (
-    <div className="score-manager">
-      {/* View Scores Button */}
-      <button 
-        className="view-scores-btn"
-        onClick={() => setShowLeaderboard(true)}
-      >
-        <span className="icon">🏆</span>
-        <span className="text">View Scores</span>
-      </button>
-
+    <>
       {/* Game Complete Modal */}
       {showScoreModal && currentScore && (
         <div className="score-modal-overlay" onClick={() => setShowScoreModal(false)}>
@@ -136,7 +126,7 @@ function ScoreManager({ currentTime, currentMoves, isGameComplete }) {
 
       {/* Leaderboard Modal */}
       {showLeaderboard && (
-        <div className="score-modal-overlay" onClick={() => setShowLeaderboard(false)}>
+        <div className="score-modal-overlay" onClick={onCloseLeaderboard}>
           <div className="leaderboard-modal" onClick={(e) => e.stopPropagation()}>
             <div className="scores-header">
               <h2>Best Scores</h2>
@@ -175,13 +165,13 @@ function ScoreManager({ currentTime, currentMoves, isGameComplete }) {
               </div>
             )}
             
-            <button className="close-modal-btn" onClick={() => setShowLeaderboard(false)}>
+            <button className="close-modal-btn" onClick={onCloseLeaderboard}>
               Close
             </button>
           </div>
         </div>
       )}
-    </div>
+    </>
   );
 }
 

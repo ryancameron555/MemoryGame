@@ -4,6 +4,8 @@ import React from 'react';
 import Restart from './Restart';
 import GameStats from './GameStats';
 import PauseResume from './PauseResume';
+import ViewScoresButton from './ViewScoresButton';
+import HowToPlay from './HowToPlay';
 import '../styles/Components.css'; // Single CSS file for all components
 
 function GameControls({ 
@@ -13,7 +15,8 @@ function GameControls({
   moves,
   onPauseResume,
   isPaused,
-  onTimeUpdate
+  onTimeUpdate,
+  onViewScores
 }) {
   return (
     <div className="game-controls">
@@ -25,6 +28,10 @@ function GameControls({
           onPauseResume={onPauseResume} 
         />
       )}
+
+      <ViewScoresButton onClick={onViewScores} />
+
+      <HowToPlay />
       
       <GameStats
         isTimerRunning={isTimerRunning}
