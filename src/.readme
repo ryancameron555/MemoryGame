@@ -1,19 +1,122 @@
-<!-- @format -->
+# 🎴 Memory Card Game
 
-To Do = xxxxx
-Done = <!-- xxxxx --> -
+A classic memory matching game built with React, featuring a sophisticated poker table aesthetic. Test your memory by matching pairs of playing cards!
 
-Features Planned:
+## 🎮 Play the Game
 
-<!-- Board  -->
-<!-- Cards -->
-<!-- Timer --> (Still needs to be positioned and styled)
+[Live Demo](https://ryancameron555.github.io/MemoryGame/)
 
-Game Over pop up
-restart
-home
-difficulty selector
-leaderboard
-other card types (Numbers/Letters - kids version)
-Shareable link to challenge
-User profile
+## What It Does
+
+Remember those memory card games you played as a kid? This is that, but with a sleek poker table design. Flip cards, find matching pairs, and try to beat your best score. Simple concept, surprisingly addictive.
+
+## Features
+
+- **30 cards to match** - Find all 15 pairs to win
+- **Score tracking** - Your best scores are saved locally (lower is better!)
+- **Timer & move counter** - See how fast and efficient you can be
+- **Pause/Resume** - Take a break without losing your progress
+- **How to Play guide** - Auto-shows for first-time players
+- **Fully responsive** - Works great on desktop, tablet, and mobile
+- **Poker table theme** - Because everything looks cooler with a felt background
+
+## How Scoring Works
+
+Your score = Time (in seconds) + (Moves × 2)
+
+So finishing in 60 seconds with 25 moves = 60 + 50 = **110 points**
+
+Lower scores are better! Try to use fewer moves and finish faster.
+
+## Tech Stack
+
+- React 18
+- Vite
+- CSS3 (no frameworks needed)
+- LocalStorage for score persistence
+
+## Getting Started
+
+1. **Clone the repo**
+   ```bash
+   git clone https://github.com/ryancameron555/MemoryGame.git
+   cd MemoryGame
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Run locally**
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for production**
+   ```bash
+   npm run build
+   ```
+
+## File Structure
+
+```
+src/
+├── components/
+│   ├── Board.jsx           # Game board and card grid
+│   ├── Card.jsx            # Individual card component
+│   ├── GameControls.jsx    # Top control panel
+│   ├── GameStats.jsx       # Timer and move counter
+│   ├── Restart.jsx         # Restart button
+│   ├── PauseResume.jsx     # Pause/resume functionality
+│   ├── ViewScoresButton.jsx
+│   ├── ScoreManager.jsx    # Leaderboard and scoring
+│   ├── HowToPlay.jsx       # Instructions modal
+│   └── Footer.jsx          # Portfolio links
+├── data/
+│   └── card.js             # Card data and shuffle logic
+├── styles/
+│   ├── App.css
+│   ├── Components.css      # All component styles
+│   ├── ScoreManager.css
+│   ├── HowToPlay.css
+│   └── Footer.css
+└── App.jsx                 # Main app component
+```
+
+## Design Choices
+
+**Why the poker table look?** 
+It just felt right for a card game. Plus, the dark green felt background is easy on the eyes during long play sessions.
+
+**Why no card flip animations?**
+Actually, there are! They're subtle CSS transforms that happen when you click a card. Not overly flashy, just smooth.
+
+**Why LocalStorage instead of a database?**
+For a simple memory game, there's no need for a backend. Your scores stay on your device, and it works offline. Win-win.
+
+## Future Ideas
+
+- Difficulty levels (more cards, different grid sizes)
+- Different card themes (not just playing cards)
+- Sound effects (optional, toggleable)
+- Multiplayer mode (take turns, see who's better)
+- Dark mode toggle
+
+## Contributing
+
+Feel free to fork this and make it your own! If you add something cool, I'd love to see it.
+
+## Credits
+
+Built by [Ryan Cameron](https://ryancameron555.github.io/PortfolioPage/)
+
+Card images from a standard 52-card deck
+
+## License
+
+MIT License - do whatever you want with this code!
+
+---
+
+**Want to play?** Just click on two cards to flip them. Match all the pairs. That's it. Have fun! 🎴
